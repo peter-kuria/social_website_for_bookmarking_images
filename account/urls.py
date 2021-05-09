@@ -22,4 +22,5 @@ path('', views.dashboard, name='dashboard'),
     #auth_views.PasswordResetCompleteView.as_view(),
     #name='password_reset_complete'),
 path('', include('django.contrib.auth.urls')),
+path('register/', views.register, name='register'),
 ]

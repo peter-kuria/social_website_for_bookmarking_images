@@ -25,7 +25,7 @@ SECRET_KEY = 'vikinpyu)%tz7k8e--do^%p*z3anp#g=o*i=d&gvqwifk-#5c6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +108,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth2',
+  
+]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '575762933398603' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '●●●●●●●●'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '32425457683-rcq6sr7h3150cs47utqt0ri8jti72o20.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'NSRW_EDvFTbvenlpWe117b3j' # Google Consumer Secret
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -124,3 +141,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

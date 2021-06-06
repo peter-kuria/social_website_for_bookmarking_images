@@ -29,8 +29,7 @@
         >= min_height)
         {
           image_url = jQuery(image).attr('src');
-          jQuery('#bookmarklet .images').append('<a href="#"><img src="'+
-          image_url +'" /></a>');
+          jQuery('#bookmarklet .images').append('<a href="#"><img src="'+ image_url +'" /></a>');
         }
       });
   
